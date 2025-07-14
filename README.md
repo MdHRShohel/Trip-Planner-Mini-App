@@ -58,45 +58,57 @@ Use the following credentials to log in:
 
 ---
 
+## ✅ Completion Checklist
+
+- [x] Login system with fake credentials
+- [x] Tab-based layout (Home, Trips, Settings)
+- [x] Reusable components (inputs, modals, buttons)
+- [x] AsyncStorage for trip persistence
+- [x] Date formatting using `formatDateTime.js`
+- [x] Location selection via custom modal
+- [x] Tailwind-based UI with NativeWind
+- [x] Context API for managing auth state
+
+---
+
 ## 📁 Folder Structure
 
-tripPlanner/
-├── src/
-│ ├── assets/ # Static assets (fonts, images, icons)
-│ │ ├── icons/
-│ │ |── images/
-│ │ └── fonts/
-│ │
-│ ├── components/ # Reusable UI components
-│ │ ├── Button.js
-│ │ ├── BottomSelectModal.js
-│ │ ├── InputField.js
-│ │ ├── LocationInput.js
-│ │ ├── TripCard.js
-│ │ └── DateTimeInput.js
-│ │
-│ ├── context/ # Context API setup
-│ │ └── AuthContext.js
-│ │
-│ ├── navigation/ # Navigation (stack + tabs)
-│ │ ├── AuthNavigator.js
-│ │ └── MainTabNavigator.js
-│ │
-│ ├── screens/ # App screens
-│ │ ├── LoginScreen.js
-│ │ ├── HomeScreen.js
-│ │ ├── TripsScreen.js
-│ │ └── SettingsScreen.js
-│ │
-│ ├── utils/ # Helper functions
-│   └── formatDateTime.js
-│
-│── global.css # Tailwind (NativeWind) style config
-│── App.js # App root with providers and navigation
-│
-├── README.md
-├── package.json
-└── yarn.lock
+tripPlanner/                                                                                                                                                                                                                                     
+├── src/                                                                                                                                                                                                                                         
+│ ├── assets/ # Static assets (fonts, images, icons)                                                                                                                                                                                             
+│ │ ├── icons/                                                                                                                                                                                                                                   
+│ │ ├── images/                                                                                                                                                                                                                                  
+│ │ └── fonts/                                                                                                                                                                                                                                   
+│ │                                                                                                                                                                                                                                              
+│ ├── components/ # Reusable UI components                                                                                                                                                                                                       
+│ │ ├── Button.js                                                                                                                                                                                                                                
+│ │ ├── BottomSelectModal.js                                                                                                                                                                                                                     
+│ │ ├── InputField.js                                                                                                                                                                                                                            
+│ │ ├── LocationInput.js                                                                                                                                                                                                                         
+│ │ ├── TripCard.js                                                                                                                                                                                                                              
+│ │ └── DateTimeInput.js                                                                                                                                                                                                                         
+│ │                                                                                                                                                                                                                                              
+│ ├── context/ # Context API setup                                                                                                                                                                                                               
+│ │ └── AuthContext.js                                                                                                                                                                                                                           
+│ │                                                                                                                                                                                                                                              
+│ ├── navigation/ # Navigation (stack + tabs)                                                                                                                                                                                                    
+│ │ ├── AuthNavigator.js                                                                                                                                                                                                                         
+│ │ └── MainTabNavigator.js                                                                                                                                                                                                                      
+│ │                                                                                                                                                                                                                                              
+│ ├── screens/ # App screens                                                                                                                                                                                                                    
+│ │ ├── LoginScreen.js                                                                                                                                                                                                                           
+│ │ ├── HomeScreen.js                                                                                                                                                                                                                            
+│ │ ├── TripsScreen.js                                                                                                                                                                                                                           
+│ │ └── SettingsScreen.js                                                                                                                                                                                                                        
+│ │                                                                                                                                                                                                                                              
+│ ├── utils/ # Helper functions                                                                                                                                                                                                                  
+│   └── formatDateTime.js                                                                                                                                                                                                                        
+│                                                                                                                                                                                                                                              
+│── global.css # Tailwind (NativeWind) style config                                                                                                                                                                                              
+│── App.js # App root with providers and navigation                                                                                                                                                                                              
+├── README.md                                                                                                                                                                                                                                    
+├── package.json                                                                                                                                                                                                                                 
+└── yarn.lock                                                                                                                                                                                                                                    
 
 ---
 
@@ -124,25 +136,10 @@ yarn ios
 
 ```
 
-## ✅ Completion Checklist
-
-- [x] Login system with fake credentials
-- [x] Tab-based layout (Home, Trips, Settings)
-- [x] Reusable components (inputs, modals, buttons)
-- [x] AsyncStorage for trip persistence
-- [x] Date formatting using `formatDateTime.js`
-- [x] Location selection via custom modal
-- [x] Tailwind-based UI with NativeWind
-- [x] Context API for managing auth state
-
----
-
----
-
 ## ✍️ Author
 
 **Md. Habibur Rahman Shohel**  
-Junior Software Engineer  
+Software Engineer  
 Email: [md.hrshohel@gmail.com](mailto:md.hrshohel@gmail.com)  
 GitHub: [@mdhrshohel](https://github.com/mdhrshohel)
 
