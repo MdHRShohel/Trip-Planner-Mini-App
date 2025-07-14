@@ -16,7 +16,7 @@ export default function SettingsScreen() {
 
         <View className="items-center mb-8">
           <Image
-            source={imagesMap[user?.imageKey]}
+            source={imagesMap[user?.imageKey] || userImage}
             className="size-[128px] rounded-full mb-4"
           />
           <Text className="text-[#171212] text-[22px] leading-7 font-bold font-inter">{user?.name || ''}</Text>

@@ -1,11 +1,11 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
-import Toast from 'react-native-root-toast';
 import TripPlannerSettings from '../assets/icons/Trip-planner-Settings.svg';
 import Button from '../components/Button';
 import DateTimeInput from '../components/DateTimeInput';
 import LocationInput from '../components/LocationInput';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const locations = [
   { id: 1, name: 'Dhaka' },
@@ -13,47 +13,46 @@ const locations = [
   { id: 3, name: 'Sylhet' },
   { id: 4, name: 'Khulna' },
   { id: 5, name: 'Rajshahi' }
-]
+];
 
 export default function HomeScreen() {
   const [loadLoc, setLoadLoc] = useState(null);
   const [unloadLoc, setUnloadLoc] = useState(null);
   const [date, setDate] = useState(null);
+  const [error, setError] = useState('');
+
+  const navigation = useNavigation();
+
+   useEffect(() => {
+    if (error) {
+      const timeout = setTimeout(() => setError(''), 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [error]);
 
   const handleCreateTrip = async () => {
     if (!loadLoc || !unloadLoc || !date) {
-      Toast.show('Please fill all fields', {
-        duration: Toast.durations.SHORT,
-        position: Toast.positions.BOTTOM,
-        backgroundColor: '#A30F0F',
-        textColor: '#fff',
-      });
+      setError('All fields are required');
+      setTimeout(() => setError(''), 10000);
       return;
     }
 
     const newTrip = {
       id: Date.now(),
-      load: loadLoc.name,
-      unload: unloadLoc.name,
-      date: date.toISOString(),
+      loadLoc,
+      unloadLoc,
+      date
     };
 
-    const existingTrips = await AsyncStorage.getItem('trips');
-    const parsedTrips = existingTrips ? JSON.parse(existingTrips) : [];
+    const existing = await AsyncStorage.getItem('trips');
+    const trips = existing ? JSON.parse(existing) : [];
+    trips.push(newTrip);
 
-    parsedTrips.push(newTrip);
-    await AsyncStorage.setItem('trips', JSON.stringify(parsedTrips));
-
+    await AsyncStorage.setItem('trips', JSON.stringify(trips));
     setLoadLoc(null);
     setUnloadLoc(null);
     setDate(null);
-
-    Toast.show('Trip created successfully', {
-      duration: Toast.durations.SHORT,
-      position: Toast.positions.BOTTOM,
-      backgroundColor: '#16a34a',
-      textColor: '#fff',
-    });
+    navigation.navigate('Trips');
   };
 
   return (
@@ -88,8 +87,12 @@ export default function HomeScreen() {
 
         <DateTimeInput value={date} onChange={setDate} />
 
+        {error ? (
+          <Text className="text-red-600 font-inter text-base">{error}</Text>
+        ) : null}
+
         <Button title="Create Trip" onPress={handleCreateTrip} />
       </View>
     </View>
-  )
+  );
 }

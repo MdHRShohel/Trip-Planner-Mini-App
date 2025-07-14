@@ -48,12 +48,14 @@ export default function LoginScreen() {
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
+            autoCapitalize="none"
           />
 
           <InputField
             placeholder="Password"
             value={password}
             onChangeText={setPassword}
+            autoCapitalize="none"
             secureTextEntry
           />
 

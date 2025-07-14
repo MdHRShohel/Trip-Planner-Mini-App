@@ -1,97 +1,155 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🧭 Trip Planner — React Native CLI App
 
-# Getting Started
+A simple mobile trip planning app built with **React Native CLI**. Users can create trips, view trip lists, and manage their profile with a clean UI.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 📱 Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Login Screen**
+  - Email/password-based simulated login
+  - Stores user session locally
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Home Screen**
+  - Select Load Location
+  - Select Unload Location
+  - Date & Time Picker
+  - Create Trip and store in local storage
 
-```sh
-# Using npm
-npm start
+- **Trips Screen**
+  - View saved trips
+  - Load → Unload info with Date & Time
+  - Trip card with image preview
+  - Optional Delete trip
 
-# OR using Yarn
+- **Settings Screen**
+  - Displays static user info
+  - Logout button clears session and navigates to login
+
+---
+
+## 🔐 Login Credentials
+
+Use the following credentials to log in:
+
+- **Email:** `user@demo.com`
+- **Password:** `123456`
+
+---
+
+## 📦 Tech Stack
+
+- **React Native CLI** (not Expo)
+- **React Navigation v7**
+- **AsyncStorage** for local trip storage
+- **Context API** for user auth management
+- **NativeWind** (Tailwind CSS for React Native)
+- **react-native-modal**
+- **react-native-datetimepicker**
+
+---
+
+## 📦 Requirements
+
+- Node.js ≥ 18.x
+- Yarn (recommended)
+- Android Studio or Xcode (for running on devices/emulators)
+- JDK ≥ 17
+
+---
+
+## 📁 Folder Structure
+
+tripPlanner/
+├── src/
+│ ├── assets/ # Static assets (fonts, images, icons)
+│ │ ├── icons/
+│ │ |── images/
+│ │ └── fonts/
+│ │
+│ ├── components/ # Reusable UI components
+│ │ ├── Button.js
+│ │ ├── BottomSelectModal.js
+│ │ ├── InputField.js
+│ │ ├── LocationInput.js
+│ │ ├── TripCard.js
+│ │ └── DateTimeInput.js
+│ │
+│ ├── context/ # Context API setup
+│ │ └── AuthContext.js
+│ │
+│ ├── navigation/ # Navigation (stack + tabs)
+│ │ ├── AuthNavigator.js
+│ │ └── MainTabNavigator.js
+│ │
+│ ├── screens/ # App screens
+│ │ ├── LoginScreen.js
+│ │ ├── HomeScreen.js
+│ │ ├── TripsScreen.js
+│ │ └── SettingsScreen.js
+│ │
+│ ├── utils/ # Helper functions
+│   └── formatDateTime.js
+│
+│── global.css # Tailwind (NativeWind) style config
+│── App.js # App root with providers and navigation
+│
+├── README.md
+├── package.json
+└── yarn.lock
+
+---
+
+## 🛠️ Installation
+
+```bash
+# Clone the repo
+git clone <your-repo-url>
+cd tripPlanner
+
+# Install dependencies
+yarn install
+
+# Install pods (for iOS only)
+cd ios && pod install && cd ..
+
+# Start Metro
 yarn start
-```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
+# Run on Android
 yarn android
-```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
+# Run on iOS
 yarn ios
+
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## ✅ Completion Checklist
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+- [x] Login system with fake credentials
+- [x] Tab-based layout (Home, Trips, Settings)
+- [x] Reusable components (inputs, modals, buttons)
+- [x] AsyncStorage for trip persistence
+- [x] Date formatting using `formatDateTime.js`
+- [x] Location selection via custom modal
+- [x] Tailwind-based UI with NativeWind
+- [x] Context API for managing auth state
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+---
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## ✍️ Author
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+**Md. Habibur Rahman Shohel**  
+Junior Software Engineer  
+Email: [md.hrshohel@gmail.com](mailto:md.hrshohel@gmail.com)  
+GitHub: [@mdhrshohel](https://github.com/mdhrshohel)
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 📝 License
 
-You've successfully run and modified your React Native App. :partying_face:
+This project is licensed for **demonstration and educational purposes only**.  
+All rights reserved © 2025 Md. Habibur Rahman Shohel.
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
